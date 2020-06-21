@@ -27,6 +27,7 @@ for album in raw_albums:
 	if album['name'] in album_names or len(albums) <= 0:
 		album_names.remove(album['name'])
 		albums.append(album)
+albums.reverse()
 
 features = ['valence', 'danceability', 'energy', 'speechiness']
 
@@ -62,4 +63,4 @@ for feature in features:
 	fig.update_layout(title_text=feature)
 	fig.update_xaxes(showticklabels=False)
 	filename = 'data/' + feature + '.html'
-	pio.write_html(fig, file=filename, auto_open=False)
+	pio.write_html(fig, file=filename, auto_open=True)
